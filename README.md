@@ -10,6 +10,8 @@ Features
 * Support for Splunk alerts
 * Support for Sensu Events
 
+I took a short video of a couple of the effects that you can see [here.](https://www.dropbox.com/s/1xmv9pni180laq3/2013-01-27%2021.00.46.mp4)
+
 Stuff you need
 --------------
 You'll need to make this thing so besides a soldering iron, wire and solder you'll need the following:  
