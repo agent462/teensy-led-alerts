@@ -35,14 +35,24 @@ void loop() {
 
   switch (alert) {
     case '1':
-      setColor(strip.Color(0, 127,0));      //all green
+      setColor(strip.Color(0, 127,0));        // all green
       break;
     case '2':
-      scanner(127,0,0, 30);                 // red, slow
+      scanner(127,0,0, 30);                   // red, slow
       break;
     case '3':
-      wave(strip.Color(127,0,0), 4, 20);    // red/white/blue
+      wave(strip.Color(127,0,0), 4, 20);      // red/white/blue
       break;
+    case '4':
+      rainbowCycle(0);                        // make it go through the cycle fairly fast
+    case '5':
+      colorChase(strip.Color(127,0,127), 20); // magenta
+    case '6':
+      dither(strip.Color(127,0,127), 50);     // magenta, slow
+    case '7':
+      dither(strip.Color(127,127,0), 50);     // yellow, slow
+    case '8':
+      colorWipe(strip.Color(127,0,0), 20);    // red
     default:
       setColor(strip.Color(0, 0,0));
     }
@@ -71,6 +81,56 @@ void setColor(uint32_t c) {
     strip.setPixelColor(i, c);
     strip.show();
   }
+}
+
+void colorWipe(uint32_t c, uint8_t wait) {
+  int i;
+
+  for (i=0; i < strip.numPixels(); i++) {
+      strip.setPixelColor(i, c);
+      strip.show();
+      delay(wait);
+  }
+}
+
+void colorChase(uint32_t c, uint8_t wait) {
+  int i;
+
+  for (i=0; i < strip.numPixels(); i++) {
+    strip.setPixelColor(i, 0);  // turn all pixels off
+  }
+
+  for (i=0; i < strip.numPixels(); i++) {
+      strip.setPixelColor(i, c); // set one pixel
+      strip.show();              // refresh strip display
+      delay(wait);               // hold image for a moment
+      strip.setPixelColor(i, 0); // erase pixel (but don't refresh yet)
+  }
+  strip.show(); // for last erased pixel
+}
+
+void dither(uint32_t c, uint8_t wait) {
+
+  // Determine highest bit needed to represent pixel index
+  int hiBit = 0;
+  int n = strip.numPixels() - 1;
+  for(int bit=1; bit < 0x8000; bit <<= 1) {
+    if(n & bit) hiBit = bit;
+  }
+
+  int bit, reverse;
+  for(int i=0; i<(hiBit << 1); i++) {
+    // Reverse the bits in i to create ordered dither:
+    reverse = 0;
+    for(bit=1; bit <= hiBit; bit <<= 1) {
+      reverse <<= 1;
+      if(i & bit) reverse |= 1;
+    }
+    strip.setPixelColor(reverse, c);
+    strip.show();
+    delay(wait);
+  }
+  delay(250); // Hold image for 1/4 sec
 }
 
 void scanner(uint8_t r, uint8_t g, uint8_t b, uint8_t wait) {
