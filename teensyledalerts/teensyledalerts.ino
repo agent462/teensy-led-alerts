@@ -45,14 +45,19 @@ void loop() {
       break;
     case '4':
       rainbowCycle(0);                        // make it go through the cycle fairly fast
+      break;
     case '5':
       colorChase(strip.Color(127,0,127), 20); // magenta
+      break;
     case '6':
       dither(strip.Color(127,0,127), 50);     // magenta, slow
+      break;
     case '7':
       dither(strip.Color(127,127,0), 50);     // yellow, slow
+      break;
     case '8':
       colorWipe(strip.Color(127,0,0), 20);    // red
+      break;
     default:
       setColor(strip.Color(0, 0,0));
     }
