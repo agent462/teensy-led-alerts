@@ -12,24 +12,20 @@ Features
 
 Stuff you need
 --------------
-You'll need to make this thing so besides a soldering iron, wire and solder you'll need the following:
-`Teensy 2.0:` http://www.pjrc.com/store/teensy.html
-
-`LED Strip:` http://www.adafruit.com/products/306
-
-`LPD8806 Library:` https://github.com/adafruit/LPD8806
-
-`Teensy Arduino:` http://www.pjrc.com/teensy/td_download.html
-
-`Arduino Software:` http://arduino.cc/en/Main/Software
+You'll need to make this thing so besides a soldering iron, wire and solder you'll need the following:  
+`Teensy 2.0:` http://www.pjrc.com/store/teensy.html  
+`LED Strip:` http://www.adafruit.com/products/306  
+`LPD8806 Library:` https://github.com/adafruit/LPD8806  
+`Teensy Arduino:` http://www.pjrc.com/teensy/td_download.html  
+`Arduino Software:` http://arduino.cc/en/Main/Software  
 
 Solder
 ------
-LED -> Teensy
-gnd -> gnd
-+5v -> vcc
-D1 -> B2
-C1 -> B1
+LED -> Teensy  
+gnd -> gnd  
++5v -> vcc  
+D1 -> B2  
+C1 -> B1  
 
 Usage and Configuration
 -----------------------
