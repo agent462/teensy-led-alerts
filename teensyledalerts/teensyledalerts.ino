@@ -18,9 +18,13 @@ void setup() {
 }
 
 // function prototypes, do not remove these!
+void colorChase(uint32_t c, uint8_t wait);
+void colorWipe(uint32_t c, uint8_t wait);
+void dither(uint32_t c, uint8_t wait);
 void scanner(uint8_t r, uint8_t g, uint8_t b, uint8_t wait);
 void wave(uint32_t c, int cycles, uint8_t wait);
 void rainbowCycle(uint8_t wait);
+void setColor(uint32_t c);
 uint32_t Wheel(uint16_t WheelPos);
 
 void loop() {
@@ -51,12 +55,15 @@ void loop() {
       break;
     case '6':
       dither(strip.Color(127,0,127), 50);     // magenta, slow
+      setColor(strip.Color(0, 0,0));
       break;
     case '7':
       dither(strip.Color(127,127,0), 50);     // yellow, slow
+      setColor(strip.Color(0, 0,0));
       break;
     case '8':
       colorWipe(strip.Color(127,0,0), 20);    // red
+      setColor(strip.Color(0, 0,0));
       break;
     default:
       setColor(strip.Color(0, 0,0));
