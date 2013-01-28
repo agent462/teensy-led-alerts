@@ -39,7 +39,7 @@ Please provide a pull request.
 
 Inspiration
 -----------
-Inspiration for this project came from Rick Osgood who built a similar devicde.  You can check his blog out [here.](http://www.richardosgood.com/2012/03/01/splunk-led-meter-complete/)
+Inspiration for this project came from Rick Osgood who built a similar device.  You can check his blog out [here.](http://www.richardosgood.com/2012/03/01/splunk-led-meter-complete/)
 
 License and Author
 ==================
