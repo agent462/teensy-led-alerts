@@ -76,11 +76,11 @@ end
 def check_status
   alert = 1
   sensu = check_sensu
-  if sensu.count > 0 then alert + 4 end
+  if sensu.count > 0 then alert = alert + 4 end
   pd = check_pager_duty
-  if pd["total"] > 0 then alert + 3 end
+  if pd["total"] > 0 then alert = alert + 3 end
   splunk = check_splunk
-  if splunk["entry"][0]["content"]["triggered_alert_count"] > 0 then alert + 2 end
+  if splunk["entry"][0]["content"]["triggered_alert_count"] > 0 then alert = alert + 2 end
 
   case alert
   when 1
